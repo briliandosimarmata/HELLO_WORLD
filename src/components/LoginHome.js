@@ -12,15 +12,11 @@ export default class LoginHome extends Component {
         }
     }
 
-    usernameComp = (name) => {
-        this.setState({username: name})
-    }
-
     render() {
         return (
             <View>
                 <Text>{this.state.username}</Text>
-                <LoginComponent count = {this.state.count} usernameComponent = {this.usernameComp} />
+                <LoginComponent count = {this.state.count} usernameComponent = {(name) => {this.setState({username: name})}} />
                 <Button title = "Login" onPress = {()=>{this.setState({count: this.state.count+1})}}/>
             </View>
         )
